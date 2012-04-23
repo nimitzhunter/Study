@@ -2,7 +2,9 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
+
+/* adding very large number */
+
 int main()
 {
 	using namespace std;
@@ -12,7 +14,6 @@ int main()
 	ifstream inFile("data.txt");
 	int index;
 
-	// extract 23293029183023 into an array
 	while ( getline(inFile,sTmp))
 		{
 			index=0;
