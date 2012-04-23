@@ -3,7 +3,9 @@
 #include <iostream>
 #include <fstream>
 
-/* adding very large number */
+/* Work out the first ten digits of the sum of the following
+	 one-hundred 50-digit numbers
+*/
 
 int main()
 {
