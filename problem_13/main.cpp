@@ -21,7 +21,7 @@ int main()
 	while ( getline(inFile,sTmp))
 		{
 			index=0;
-			for (it=sTmp.rbegin() ; it < sTmp.rend() ; ++it)
+			for (it=sTmp.rbegin() ; it != sTmp.rend() ; ++it)
 				{
 					array[index++] += (int(*it))-48;
 				}
@@ -33,5 +33,6 @@ int main()
 		}
 	for ( int i = 49  ; i >0  ; --i)
 		cout << array[i];
+	cout << endl;
 	return 0;
 }
