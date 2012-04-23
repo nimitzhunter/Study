@@ -16,10 +16,12 @@ int main()
 	ifstream inFile("data.txt");
 	int index;
 
+	string::reverse_iterator it;
+	
 	while ( getline(inFile,sTmp))
 		{
 			index=0;
-			for ( string::reverse_iterator it=sTmp.rbegin() ; it < sTmp.rend() ; ++it)
+			for (it=sTmp.rbegin() ; it < sTmp.rend() ; ++it)
 				{
 					array[index++] += (int(*it))-48;
 				}
