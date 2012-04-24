@@ -22,15 +22,15 @@ int main()
 		{
 			index=0;
 			for (it=sTmp.rbegin() ; it != sTmp.rend() ; ++it)
-				{
-					array[index++] += (int(*it))-48;
-				}
+				array[index++] += (int(*it))-48;
 		}
+
 	for ( int i = 0 ; i < 49 ; ++i)
 		{
 			array[i+1] += (array[i]/10);
 			array[i] %= 10;
 		}
+	
 	for ( int i = 49  ; i >0  ; --i)
 		cout << array[i];
 	cout << endl;
