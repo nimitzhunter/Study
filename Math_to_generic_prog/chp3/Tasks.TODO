@@ -1,0 +1,4 @@
+Idea:
+  ✔ Instead of iterate over a complete list of booleans, count the items
+    that were set to false and substract the count from the length of the
+    boolean array. @done (15-05-01 19:23)
