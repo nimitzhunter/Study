@@ -2,10 +2,16 @@
 1. How many steps. Say we have N steps. 
 2. At each step, how many choices do we have?  Does the number of choices remain constant or how does it shift at each step? 
 Example: a set contain positive numbers of up to 10 digits, how many numbers are in the set?
+ Simple solution: choice**steps
 In this example, order matters, 1234 and 4321 are different numbers.
 How many steps? 10 steps because each number contain up to 10 digits. 
 How have choices do we have in each step? At each digit, we can select any number from 0 to 9, so we have 10 choices. 
 Answer is 10**10 numbers.
+
+### What is the combination of N items?
+Ans: 
+There are N steps. At each step we decide whether or not to take the item, so there are two choices. The solution is choice**steps, thus the answer is 2**N.
+Solution 2**N
 
 
 ## how to count something where the order doesn't matter
@@ -64,3 +70,9 @@ a) at most n digits
 b) exactly n digits
   Ans: to be exactly n digits, the first digit cannot be zero; this implies that we only have 9 choices (1-9) for the first digit. The other (n-1) digits have 10 choices(0-9). This implies 9*10**(n-1). Since the number can be either positive or negative, we need to double our count to obtain:
   2*9*10**(n-1). Unlike previous answer, we don't count '0' because '0' isn't exactly n digits for n>1. For n=1, there are 19 numbers because we need to count zero.
+
+1.5.6 We have 20 kinds of presents and the supply of each kind is large. We want to give the presents to 12 children. It is not required that every child get something; and no child can get two copies of the same present. How many ways can we give the presents? 
+
+Solution: 
+1) How many combinations of 20 presents? the answer is 2**20 subsets of a set of 20 different kind of presents. 
+2) How many way to distributes the presents. Each child can choose one of the 2**20 subsets (one of these subsets is the Null set.). The step is 12 for 12 children, and the choices are 2**20. The solution is (2**20)**12
