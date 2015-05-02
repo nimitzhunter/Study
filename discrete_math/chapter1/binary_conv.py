@@ -12,6 +12,3 @@ print(binary(32343))
 print('{0:10b}'.format(32343))
 
 print(binary(5632343532))
-
-this is a new way to do this
-may be may be not can you notice any diff?
