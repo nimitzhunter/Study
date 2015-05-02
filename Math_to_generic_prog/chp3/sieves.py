@@ -22,10 +22,6 @@ import time
 
 def mark_sieve(bool_array, start, end, factor, counter):
     while start < end:
-        # excp = str(start) + ' val= ' + str(2 * start + 3) + \
-        #     ' factor=' + str(factor) + ' index = ' + str(i) + \
-        #     '\n' + str(sieve) + '\n' + str(bool_array)
-        # assert bool_array[start] is True, 'found a false item @ ' + excp
         if bool_array[start] is True:
             next(counter)
 
@@ -51,31 +47,16 @@ def sift(n):
         index_of_square += factor
         factor += 2
         index_of_square += factor
-
-    # for boolv in array:
-    #     if boolv:
-    #         next(c)
-    # for boolv in array:
-    #     if boolv is False:
-    #         next(c2)
-
-    # print([e for e in zip(c, sieve, array)])
-    # print(([elem for elem in zip(sieve, array)]))
-    # a = len([elem for elem in compress(sieve, array)])
-
-    # didn't generate the sieve with 2. Adding 1 to account for
-    # 2 as a prime
-    # return tuple([end_index + 1, next(c), next(c2), c3])
     return end_index - next(c)
 
-t_0 = time.time()
-print(sift(10**5))
-print('time elapsed', time.time() - t_0)
-
-# xaxis = [10**i for i in range(1, 10)]
 # t_0 = time.time()
-# yaxis = [sift(n) for n in xaxis]
+# print(sift(10**5))
 # print('time elapsed', time.time() - t_0)
-# print(list(zip(xaxis, yaxis)))
-# plt.plot(xaxis, yaxis)
-# plt.show()
+
+xaxis = [10**i for i in range(1, 3)]
+t_0 = time.time()
+yaxis = [sift(n) for n in xaxis]
+print('time elapsed', time.time() - t_0)
+print(list(zip(xaxis, yaxis)))
+plt.plot(xaxis, yaxis)
+plt.show()
