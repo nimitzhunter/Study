@@ -10,3 +10,5 @@ def binary(n):
 
 print(binary(32343))
 print('{0:10b}'.format(32343))
+
+print(binary(5632343532))
