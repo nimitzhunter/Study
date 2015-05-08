@@ -56,6 +56,4 @@ def bino(n, k):
         (n, prev_x) = (n + 1, n * prev_x // k)  # b(n,k) = n/k*b(n-k,k-1)
     return prev_x
 
-assert bino(100, 3) == binomial_iter3(100, 3)
-print(bino(100, 3))
-print(binomial(100, 3))
+print(bino(9, 4))
