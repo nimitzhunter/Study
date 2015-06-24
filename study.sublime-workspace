@@ -16,31 +16,15 @@
 	"buffers":
 	[
 		{
-			"file": "discrete_math/chapter1/binary_conv.py",
+			"file": "unittest.py",
 			"settings":
 			{
-				"buffer_size": 249,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "discrete_math/chapter1/note.md",
-			"settings":
-			{
-				"buffer_size": 7851,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/hp/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 443,
+				"buffer_size": 16,
 				"line_ending": "Windows"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/C++/C++ Single File.sublime-build",
 	"build_system_choices":
 	[
 		[
@@ -78,15 +62,111 @@
 				"Anaconda Python Builder",
 				""
 			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Vintageous/Vintageous.sublime-build",
+					""
+				],
+				[
+					"Packages/Vintageous/Vintageous.sublime-build",
+					"Vintageous - Test (All)"
+				],
+				[
+					"Packages/Vintageous/Vintageous.sublime-build",
+					"Vintageous - Test (This File Only)"
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/cpp.sublime-build",
+					""
+				],
+				[
+					"Packages/User/cpp.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/cpp.sublime-build",
+				""
+			]
 		]
 	],
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 37.0,
-		"last_filter": "",
+		"height": 375.0,
+		"last_filter": "run",
 		"selected_items":
 		[
+			[
+				"run",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"singlefile",
+				"Build With: C++ Single File"
+			],
+			[
+				"build",
+				"Build With: C++ Single File - Run"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"markuser",
+				"Preferences: MarkdownEditing Settings – User"
+			],
+			[
+				"pep8",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"markduser",
+				"Preferences: MarkdownEditing Settings – User"
+			],
 			[
 				"markdowuser",
 				"Preferences: MarkdownEditing Settings – User"
@@ -94,10 +174,6 @@
 			[
 				"marbro",
 				"Markdown Preview: Preview in Browser"
-			],
-			[
-				"user",
-				"Preferences: Settings - User"
 			],
 			[
 				"markdownus",
@@ -130,10 +206,6 @@
 			[
 				"colorsub",
 				"Colorsublime: Install Theme"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
 			],
 			[
 				"mar",
@@ -214,10 +286,6 @@
 			[
 				"insta",
 				"Package Control: Install Package"
-			],
-			[
-				"build",
-				"Build With: Python"
 			],
 			[
 				"project",
@@ -324,10 +392,6 @@
 				"Preferences: AutoPep8 Settings – User"
 			],
 			[
-				"pep8",
-				"Preferences: AutoPep8 Settings – Default"
-			],
-			[
 				"prefs",
 				"Preferences: Settings - User"
 			],
@@ -344,7 +408,7 @@
 				"View: Toggle Open Files in Side Bar"
 			]
 		],
-		"width": 498.0
+		"width": 450.0
 	},
 	"console":
 	{
@@ -366,14 +430,23 @@
 	"expanded_folders":
 	[
 		"/C/Users/hp/Dropbox/GitHub/Study",
-		"/C/Users/hp/Dropbox/GitHub/Study/discrete_math",
-		"/C/Users/hp/Dropbox/GitHub/Study/discrete_math/chapter1"
+		"/C/Users/hp/Dropbox/GitHub/Study/recursive"
 	],
 	"file_history":
 	[
-		"/C/Users/hp/Dropbox/GitHub/Study/discrete_math/chapter1/note.md",
+		"/C/Users/hp/Documents/neovim/src/nvim/api/vim.c",
+		"/C/Users/hp/Dropbox/GitHub/Study/discrete_math/chapter2/dist.py",
+		"/C/Users/hp/AppData/Roaming/Sublime Text 3/Packages/User/cpp.sublime-build",
+		"/C/Users/hp/Dropbox/GitHub/Study/pattern/command.cpp",
+		"/C/Users/hp/VirtualBox VMs/ubuntu/Logs/VBoxStartup.log",
 		"/C/Users/hp/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/hp/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/C/Users/hp/AppData/Roaming/Sublime Text 3/Packages/User/C++.sublime-settings",
+		"/C/Users/hp/AppData/Roaming/Sublime Text 3/Installed Packages/Theme - Glacier.sublime-package",
+		"/C/Users/hp/Dropbox/GitHub/Study/discrete_math/chapter1/note.md",
 		"/C/Users/hp/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/C/Users/hp/Dropbox/GitHub/Study/discrete_math/chapter2/note.md",
+		"/C/Users/hp/Dropbox/GitHub/Study/discrete_math/chapter1/binary_conv.py",
 		"/C/Users/hp/AppData/Roaming/Sublime Text 3/Packages/Cheat Sheets/cheat-sheets/Github Flavored Markdown.cheatsheet",
 		"/C/Users/hp/Dropbox/GitHub/Study/study.sublime-project",
 		"/C/Users/hp/AppData/Roaming/Sublime Text 3/Packages/User/Markdown (Standard).sublime-settings",
@@ -454,144 +527,62 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "discrete_math/chapter1/binary_conv.py",
+					"file": "unittest.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 249,
+						"buffer_size": 16,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								183,
-								183
+								16,
+								16
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
+							"_anf_new": "",
 							"bh_regions":
 							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"highlight_line": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 13
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "discrete_math/chapter1/note.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7851,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3388,
-								3388
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -602,26 +593,11 @@
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -631,125 +607,14 @@
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_round_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
+								"bh_round_content"
 							],
-							"parser": "github",
-							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
-							"tab_size": 2,
-							"target": "disk",
-							"translate_tabs_to_spaces": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
 							"vintage":
 							{
 								"_vintageous_glue_until_normal_mode": false,
 								"_vintageous_non_interactive": false,
 								"_vintageous_processing_notation": false,
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"normal_insert_count": "1",
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 22
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 989.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/hp/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 443,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								67,
-								67
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"vintage":
-							{
-								"_vintageous_glue_until_normal_mode": false,
 								"action": null,
 								"action_count": "",
 								"mode": "mode_normal",
@@ -767,7 +632,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -820,7 +685,7 @@
 	{
 		"height": 126.0
 	},
-	"pinned_build_system": "",
+	"pinned_build_system": "Packages/User/cpp.sublime-build",
 	"project": "study.sublime-project",
 	"replace":
 	{
@@ -833,6 +698,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"command.cpp",
+				"pattern\\command.cpp"
+			],
 			[
 				"nte",
 				"discrete_math\\chapter1\\note.md"
@@ -885,14 +754,14 @@
 	"selected_group": 0,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "number",
+		"_vintageous_last_buffer_search": "primes",
 		"_vintageous_last_buffer_search_command": "vi_slash",
 		"_vintageous_last_char_search_command": "vi_f",
-		"_vintageous_last_character_search": "*",
+		"_vintageous_last_character_search": " ",
 		"_vintageous_reset_during_init": true,
 		"vintage":
 		{
-			"_cmdline_cd": "C:\\Users\\hp\\Dropbox\\GitHub\\Study\\discrete_math\\chapter1"
+			"_cmdline_cd": "C:\\Users\\hp\\Dropbox\\GitHub\\Study"
 		}
 	},
 	"show_minimap": true,

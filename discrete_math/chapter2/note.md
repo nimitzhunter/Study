@@ -81,10 +81,11 @@ the distributions.
 
 *See permu.txt for distribution of a set of { 1,2,3,4,5 } into a group of
 size 2 and a group of size 3. The super group has size 2!\*3!=12. 5!=120.Thus,
-there are 10 super group. __Notice__ that in each super group, the first
-2 elements in the set are the same but in different order; the next 3 elements
-of each sets are also the same but in different order.*
+there are 10 super group.
 
+__Notice__ that in each super group, the first 2 elements in the set are the
+same but in different order; the next 3 elements of each sets are also the same
+but in different order.*
 
 
 ## Distribute n identical items to k group, each group get at least one element

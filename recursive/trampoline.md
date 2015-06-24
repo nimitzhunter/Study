@@ -37,10 +37,10 @@ The function *call* takes in a function and return that function. The magic happ
         g = call(trampoline)
         tramp = g(n - 1, n * acc)
         return tramp
-The first magic happens in the function trampoline. What every calling trampoline, the address of the function is stored and returned by function *call*. When being returned, all the work is being done by the accumulator *n\*acc*, instead of recursion. 
+The first magic happens in the function trampoline. What every calling trampoline, the address of the function is stored and returned by function *call*. When being returned, all the work is being done by the accumulator *n\*acc*, instead of recursion.
 
-    h, args, kwds = h(*args, **kwds)
+    h, args, kwds = h(\*args, \*\*kwds)
 
-Notice that *def g* return the function that *call* takes in. In  *h, args, kwds = h(\*args, \*\*kwds)*, *h* is the original function and not a new stack frame. No new stack frame is being allocated, just one stack frame keep being bounced back and forth like using a trampoline. 
+Notice that *def g* return the function that *call* takes in. In  *h, args, kwds = h(\*args, \*\*kwds)*, *h* is the original function and not a new stack frame. No new stack frame is being allocated, just one stack frame keep being bounced back and forth like using a trampoline.
 
-This method is called trampoline because the original allocated stack frame is always bounced back. 
+This method is called trampoline because the original allocated stack frame is always bounced back.

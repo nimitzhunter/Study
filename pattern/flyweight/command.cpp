@@ -1,5 +1,11 @@
-#include <iostream>
+/*
+ * Command pattern
+ *
+ * The virtual base class allows use to overload the command.
+ *
+ */
 
+#include <iostream>
 
 class Command {
     public:
