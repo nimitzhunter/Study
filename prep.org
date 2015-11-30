@@ -1,0 +1,58 @@
+#+TITLE: Google Interview Guidance
+#+STARTUP: Overview
+#+AUTHOR: Huy Pham
+
+
+* Algorithm Complexity:
+** TODO: read first chapter 
+* Hashtables:
+* Sorting
+  NOTE: Know at least two O(nlogn): quick-sort and merge sort
+* Trees:
+  ** TODO binary tree
+  ** TODO trie-tree
+  ** TODO n-arry tree
+  ** TODO red-black tree
+  ** TODO AVL tree
+  ** TODO splay tree
+  ** TODO in-order, post-order and pre-order
+* Graphs:
+** TODO graph representations
+*** objects and pointers
+*** matrix
+*** adjacency list
+** TODO Graph Traversal
+*** TODO Breadth First Search
+*** TODO Depth First Search
+*** TODO Dijkstra
+*** TODO A*
+* Other data structures
+* NP-complete problems
+** TODO traveling salesman
+** TODO knapsack problem
+* Math
+** TODO Discrete Math
+*** TODO modulus
+** TODO Counting problems/Combinatoris (from n choose k)
+** TODO Probability
+* Operating Systems:
+** TODO Processes
+** TODO Threads
+** TODO Concurrency
+** TODO Lock
+** TODO Mutex
+** TODO deadlock/livelock
+** TODO context switching
+** TODO scheduling
+** TODO 
+* File IO:
+  c++ has fstream/ifstream/ofstream
+  Syntax:
+    std::fstream myfile;myfile.open("filename",ios::in|ios::out|ios::app)
+    myfile.close();
+    std::ofstream outfile;outfile.open("filename");
+    outfile.close();
+    std::ifstream infile;infile.open("filename");
+    infile.close();
+* Object Oriented Programming
+
