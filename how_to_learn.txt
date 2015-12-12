@@ -1,0 +1,12 @@
+#+TITLE: How to Learn
+
+Four steps of learning according to KoolAid Man:
+
+* Deconstruction
+  ** Break down the wall.
+* Reconstruction
+  ** Put the wall back together
+* Repetition
+  ** Build a different wall
+* Education
+  ** Teach others how to build wall

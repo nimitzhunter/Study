@@ -1,25 +1,23 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
+#include <boost/algorithm/string.hpp>
+#include <boost/numeric/ublas/io.hpp>
+#include <boost/numeric/ublas/matrix.hpp>
 
 int main(){
-  std::ofstream myfile;
+  std::ifstream myfile("test.txt");
+  std::vector<std::string> myvec;
+  std::string word;
   
-  myfile.open("test.txt");
-  myfile << "this is a test.\n";
-  myfile << "end this misery already.";
-
-
-  std::vector<int> myvec;
-  myvec.push_back(10);
-  myvec.push_back(11);
-  myvec.push_back(12);
-  myvec.push_back(13);
-  myvec.push_back(14);
+  while (myfile >> word){
+    boost::algorithm::to_lower(word);
+    myvec.push_back(word);
+  }
+  myfile.close();
 
   for(const auto & x : myvec){
-    myfile << x << "\n";
+    std::cout << x << std::endl;
   }
-
-  myfile.close();
 }
