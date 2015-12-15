@@ -9,7 +9,7 @@
 * Sorting
   NOTE: Know at least two O(nlogn): quick-sort and merge sort
 * Trees:
-** Learn binary tree
+** Copy Learn binary tree
 
   Can be represented as a struct:
 

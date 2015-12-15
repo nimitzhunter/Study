@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <vector>
+#include <deque>
 
 template<typename T>
 struct tNode{
@@ -18,10 +19,23 @@ struct Node {
   }
 };
 
+void delete_node(Node * root){
+  if (root != nullptr){
+    delete_node(root->link[0]);
+    delete_node(root->link[1]);
+    delete root;
+  }
+}
+
 struct Tree {
   Node * root;
   Tree(){root = nullptr;};
+  ~Tree() {delete_node(root);};
 };
+
+void delete_tree(Tree * tree){
+  delete_node(tree->root);
+}
 
 Node * create_node(int data){
   return new Node(data);
@@ -41,18 +55,6 @@ Node * insert_node(Node * root, int data){
 
 void insert_tree(Tree & tree, int data){
   tree.root = insert_node(tree.root, data);
-}
-
-void delete_node(Node * root){
-  if (root != nullptr){
-    delete_node(root->link[0]);
-    delete_node(root->link[1]);
-    delete root;
-  }
-}
-
-void delete_tree(Tree * tree){
-  delete_node(tree->root);
 }
 
 void remove_node(Tree * tree, int data){
@@ -247,19 +249,86 @@ void inorder_stack(const Tree * tree){
   std::cout << std::endl;
 }
 
+
+Node * BuildTreePreorderHelper(const std::deque<int> & seq,
+                               const std::deque<int>::const_iterator & beg,
+                               const std::deque<int>::const_iterator & end){
+  if (beg == end)
+    return nullptr;
+
+  auto next = std::next(beg);
+
+  auto rootval = *beg;
+
+  auto res = new Node(rootval);
+
+  if (next != end){
+    auto result = std::find_if(next, end,
+                                [&rootval](int input)
+                                {return input>rootval;});
+    if (result != end){
+        res->link[0] = BuildTreePreorderHelper(seq,next, result);
+        res->link[1] = BuildTreePreorderHelper(seq,result, end);
+    }
+  }
+
+  return res;
+}
+
+Node * BuildTreeRootPreorder(const std::deque<int> & seq){
+  return BuildTreePreorderHelper(seq, seq.begin(), seq.end());
+}
+
+
+Node * BuildTreeFromSortedHelper(const std::vector<int> & sarray,
+                                 std::vector<int>::const_iterator cbeg,
+                                 std::vector<int>::const_iterator cend){
+  if (cbeg == cend){
+    return nullptr;
+  }
+
+  // Find the element in the middle of an sorted Array
+  auto mid = std::distance(cbeg, cend)/2;
+
+  // The middle value of the sorted array is used as the root node.
+  Node * rootnode = new Node(*std::next(cbeg,mid));
+
+  // Everything left of mid is less than mid.
+  // Use everything left of mid to create a left subtree
+  rootnode->link[0] = BuildTreeFromSortedHelper(sarray, cbeg, cbeg+mid);
+
+  // Everything right of mid is less than mid.
+  // Use everything right of mid to create a right subtree
+  rootnode->link[1] = BuildTreeFromSortedHelper(sarray, cbeg+mid+1, cend);
+
+  return rootnode;
+}
+
+Node * BuildTreeFromSorted(const std::vector<int> & sarray){
+  return BuildTreeFromSortedHelper(sarray, sarray.cbegin(), sarray.cend());
+}
+
 int main(){
   Tree mytree;
-  insert_tree(mytree,5);
-  insert_tree(mytree,3);
-  insert_tree(mytree,7);
-  insert_tree(mytree,2);
-  insert_tree(mytree,6);
-  insert_tree(mytree,8);
+  // insert_tree(mytree,5);
+  // insert_tree(mytree,3);
+  // insert_tree(mytree,7);
+  // insert_tree(mytree,2);
+  // insert_tree(mytree,6);
+  // insert_tree(mytree,8);
+  // tree_structure(&mytree);
+
+  // // postorder_stack(&mytree);
+  // // preorder_stack(&mytree);
+  // inorder_stack(&mytree);
+
+  // delete_tree(&mytree);
+
+  // std::deque<int> myseq{43,23,37,29,31,41,47,53};
+  // mytree.root = BuildTreeRootPreorder(myseq);
+  // tree_structure(&mytree);
+
+  std::vector<int> myseq{1,2,3,4,5,6,7,8,9,10,11,12};
+  mytree.root = BuildTreeFromSorted(myseq);
   tree_structure(&mytree);
-
-  // postorder_stack(&mytree);
-  // preorder_stack(&mytree);
-  inorder_stack(&mytree);
-
-  delete_tree(&mytree);
 }
