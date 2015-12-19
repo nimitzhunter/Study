@@ -283,6 +283,10 @@ Node * BuildTreeRootPreorder(const std::deque<int> & seq){
 Node * BuildTreeFromSortedHelper(const std::vector<int> & sarray,
                                  std::vector<int>::const_iterator cbeg,
                                  std::vector<int>::const_iterator cend){
+  /*
+    the array is already sorted. 
+    pick the middle element to be the root <= guarantee a minimum heigh tree
+   */
   if (cbeg == cend){
     return nullptr;
   }
@@ -308,6 +312,24 @@ Node * BuildTreeFromSorted(const std::vector<int> & sarray){
   return BuildTreeFromSortedHelper(sarray, sarray.cbegin(), sarray.cend());
 }
 
+void ReverseNode(Node * root){
+  // reverse the node by switching left and right
+  if (root == nullptr)
+    return;
+
+  auto tmp = root->link[0];
+  root->link[0] = root->link[1];
+  root->link[1] = tmp;
+
+  ReverseNode(root->link[0]);
+
+  ReverseNode(root->link[1]);
+}
+
+void ReverseTree(Tree * tree){
+  ReverseNode(tree->root);
+}
+
 int main(){
   Tree mytree;
   // insert_tree(mytree,5);
@@ -330,5 +352,7 @@ int main(){
 
   std::vector<int> myseq{1,2,3,4,5,6,7,8,9,10,11,12};
   mytree.root = BuildTreeFromSorted(myseq);
+  tree_structure(&mytree);
+  ReverseTree(&mytree);
   tree_structure(&mytree);
 }
