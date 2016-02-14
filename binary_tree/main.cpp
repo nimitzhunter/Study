@@ -9,7 +9,7 @@ struct tNode{
   std::unique_ptr<tNode<T>> links[2];
 };
 
-struct Node {
+struct Node{
   int data;
   Node * link[2];
 
@@ -20,6 +20,7 @@ struct Node {
 };
 
 void delete_node(Node * root){
+  // recursively delete every node from root
   if (root != nullptr){
     delete_node(root->link[0]);
     delete_node(root->link[1]);
@@ -58,14 +59,12 @@ void insert_tree(Tree & tree, int data){
 }
 
 void remove_node(Tree * tree, int data){
+// 1) locate the Node
+// 2) travese to the inorder successor the switch the value and delete the
+// inorder successor
   if (tree->root == nullptr)
     return;
 
-// 1st locate the Node
-// 2nd travese to the inorder successor the switch the value and delete the
-// inorder successor                                                      
-
-// what happen if we need to remove the root of the tree?
   Node head{0};
   head.link[1] = tree->root;
   Node * it = & head;
@@ -77,7 +76,7 @@ void remove_node(Tree * tree, int data){
     p_node = it;
     it = it->link[dir];
     dir = it->data <= data;
-    
+
     if (it->data == data){
       saved = it;
     }
@@ -85,7 +84,8 @@ void remove_node(Tree * tree, int data){
 
   if (saved != nullptr){
     saved->data = it->data;
-    p_node->link[p_node->link[1] == it] = it->link[it->link[0] == nullptr];
+    p_node->link[p_node->link[1] ==
+                 it] = it->link[it->link[0] == nullptr];
     delete it;
   }
 
@@ -136,17 +136,19 @@ void postorder_stack(const Tree * tree){
     bool children_added;
     Mark_node(const Node * innode, bool state = false):
       node{innode},children_added(state){};
-  }; 
+  };
 
   std::vector<Mark_node> trav_stack { Mark_node(tree->root) };
 
   while(!trav_stack.empty()){
     // looking at thetop of the stack
-    // top has to be a reference because we will be changing its children_added value
+    // top has to be a reference because we will be changing its children_added
+    // value
 
-    Mark_node & top = *trav_stack.rbegin(); 
+    Mark_node & top = *trav_stack.rbegin();
 
-    if (top.children_added == true || /* don't need to add in the children anymore */
+    /* don't need to add in the children anymore */
+    if (top.children_added == true ||
         (top.node->link[0] == nullptr &&
          top.node->link[1] == nullptr)) {
       // if a node is already visited, we don't need to look at its children again
@@ -179,8 +181,10 @@ void preorder_stack(const Tree * tree){
 
   while(!trav_stack.empty()){
     // looking at thetop of the stack
-    // top has to be a reference because we will be changing its children_added value
-    Node * top = *trav_stack.rbegin(); 
+    // top has to be a reference because we will be changing its children_added
+    // value
+
+    Node * top = *trav_stack.rbegin();
 
     std::cout << top->data << std::endl;
     Node * left = top->link[0];
@@ -210,7 +214,7 @@ void inorder_stack(const Tree * tree){
 
     Mark_node(const Node * innode, bool state = false):
       node{innode},children_added(state){};
-  }; 
+  };
 
   std::vector<Mark_node> trav_stack;
 
@@ -276,6 +280,13 @@ Node * BuildTreePreorderHelper(const std::deque<int> & seq,
 }
 
 Node * BuildTreeRootPreorder(const std::deque<int> & seq){
+  // The given array is a result of preorder-traversal.
+  // Rebuild a binary tree from that array
+  // Preorder : visit, left, right
+  // the element is the root. 
+  // remove the first element from the array.
+  // Find the first element A that is larger than the root node.
+  // Everything left of element A is the left subtree; else right subtree.
   return BuildTreePreorderHelper(seq, seq.begin(), seq.end());
 }
 
@@ -309,7 +320,9 @@ Node * BuildTreeFromSortedHelper(const std::vector<int> & sarray,
 }
 
 Node * BuildTreeFromSorted(const std::vector<int> & sarray){
-  return BuildTreeFromSortedHelper(sarray, sarray.cbegin(), sarray.cend());
+  return BuildTreeFromSortedHelper(sarray,
+                                   sarray.cbegin(),
+                                   sarray.cend());
 }
 
 void ReverseNode(Node * root){
