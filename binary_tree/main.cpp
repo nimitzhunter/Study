@@ -224,7 +224,7 @@ void inorder_stack(const Tree * tree){
     // looking at thetop of the stack
     // top has to be a reference because we will be changing its children_added value
 
-    Mark_node & top = *(trav_stack.rbegin()); 
+    Mark_node & top = *(trav_stack.rbegin());
 
     if (top.children_added == true || /* don't need to add in the children anymore */
         (top.node->link[0] == nullptr &&
@@ -283,7 +283,7 @@ Node * BuildTreeRootPreorder(const std::deque<int> & seq){
   // The given array is a result of preorder-traversal.
   // Rebuild a binary tree from that array
   // Preorder : visit, left, right
-  // the element is the root. 
+  // the element is the root.
   // remove the first element from the array.
   // Find the first element A that is larger than the root node.
   // Everything left of element A is the left subtree; else right subtree.
@@ -295,7 +295,7 @@ Node * BuildTreeFromSortedHelper(const std::vector<int> & sarray,
                                  std::vector<int>::const_iterator cbeg,
                                  std::vector<int>::const_iterator cend){
   /*
-    the array is already sorted. 
+    the array is already sorted.
     pick the middle element to be the root <= guarantee a minimum heigh tree
    */
   if (cbeg == cend){
@@ -368,4 +368,5 @@ int main(){
   tree_structure(&mytree);
   ReverseTree(&mytree);
   tree_structure(&mytree);
+  std::vector <float> mv2;
 }
