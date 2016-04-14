@@ -1,0 +1,258 @@
+#+TITLE: Google Interview Guidance
+#+STARTUP: Overview
+#+FILETAGS: Google
+
+* TODO 
+** TODO Algorithm Complexity:
+*** Learn: read first chapter 
+** TODO Hashtables:
+** TODO Sorting
+***  TODO: Know at least two O(nlogn): quick-sort and merge sort
+** Trees:
+*** Done Learn binary tree
+****  Can be represented as a struct:
+*
+*struct Node {
+  type data;
+  Node * links[2];
+}
+
+  The BST root doesn't have any parent node. The current node being examed is also called the root.
+  At any node of the BST, root->left->data < root->data < root->right
+  
+  A leaf is nullptr node. 
+  A node is called external if one of its children is a leaf.
+
+  Insertion: 
+  . Go to the external node and attach the node's left/or right to a new node.
+  Input: tree's root, and data to insert
+  pseudo code:
+
+  # iterate until we find a leaf to insert the node
+  while(root != nullptr){
+    parent = root;
+    if root->data < data:
+       root = root->right;
+    else
+       root = root->left;
+  }
+  parent->link[left or right] = make_node(data);
+  Issues:
+   - this insertion doesn't guarantee a balanced tree. Using this insertion will lead to degenerate tree.
+     
+  Deletion:
+  Easiest way to delete a node is the swap the data between the node and one of its successor. Here are the steps: 
+  1. Find the node to delete. 
+  2. Go to preorder successor or postorder successor: 
+     Preorder successor: go left once, then keep going right until reaching an external node. 
+     Postorder successor: go right once, then keep going left until reaching an external node. 
+  3. Swap the data of the successor with the target node. Delete the external node, set the point of the external's parent accordingly.
+  pseudo code:
+  delete_node(Node * tree, data){
+     # creating a function variable instead of calling "new"
+     Node temp;
+     Node * it = &temp;
+     Node * parent_node = nullptr;
+     Node * target_node = nullptr;
+
+     it->link[Right] = tree->root;
+     dir = right;
+
+     # looping until we reach an external node
+     while(it->link[dir] != nullptr){
+          parent_node = it;
+
+          it = it->link[dir];
+
+          dir = it->data <= data;
+
+          if (it->data == data)
+             target_node = it;
+     }
+     if(target_node != nullptr){
+        swap(target_node->data, it->data);
+
+        # select a link (either left or right) that points to it. 
+        # if it left child is null, point the parent_node to right. 
+        # else point the parent's child to left. 
+        # it doesn't have to have children.
+        parent_node->link[parent_node->link[1] == it] = 
+            it->link[it->link[0] == nullptr];
+        delete it;
+     }
+  }
+  
+  There is also an recursive solution, I find that solution less elegant. More over, recursive solution will run into stack overflow on an unbalanced tree. This method only uses 3 points as overhead.
+  
+  Tree's Traversal: 
+  There are 2 ways to examine each node for tree traversal: left then right, or right then left. We are choosing left then right; the other case is the exact opposite. 
+
+  There are three traversal orders for BST: 
+   . preorder: process node, look left, look right
+   . inorder: look left, process node, look right
+   . postorder: look left, look right, process node
+  The easiest way to implement this is by using a stack: 
+  pseudo code: 
+  let S be a stack of nodes:
+  
+  preorder(tree)
+   stack.push(tree->root)
+   while (stack != empty){
+     node = stack.pop();
+     process(node)
+     # push right first because we want left to be on top
+     if node->right != nullptr
+      stack.push(node->right)
+     if node->left != nullptr
+      stack.push(node->left)
+   }
+
+  postorder(tree){
+     # we need to keep track whether we have already pushed the children in to the stack. If we don't keep track of this, we will run into an infinite loop where the children of a node is keep being pushed and poped. 
+     struct special_node{
+         Node * node;
+         bool pushed_children;
+         special_node(Node * in, push_children = false)
+     }
+
+     stack.push(special_node(tree->root, false));
+     while(stack != empty){
+      # we're not poping the stack, but instead pushing the children on top first
+       top = stack.top();
+
+       # if a node has no children, or we already visit the children, then pop it out of the queue.
+       if top.push_children == true or (top has no children){
+          process(top.node);
+          stack.pop()
+       }
+       else {
+          # right is visited last, so it is pushed in first
+          if top.node->right != nullptr
+           stack.push(special_node(top.node->right))
+
+          if top.node->left != nullptr
+           stack.push(special_node(top.node->left))
+
+          top.pushed_children = true;
+       }
+     }
+  }
+  inorder(tree){
+     # look at postorder
+     # stack ordering
+       # left_child
+       # node
+       # right_child
+     struct special_node{
+         Node * node;
+         bool pushed_children;
+         special_node(Node * in, push_children = false)
+     }
+     stack.push(special_node(tree->root->right))
+     stack.push(special_node(tree->root, true))
+     stack.push(special_node(tree->root->left, true))
+     while(stack != empty){
+        top = stack.top();
+        if (top.pushed_children == true or
+            top has no children){
+            process(top.node)
+            stack.pop()
+        }
+        else{
+         Node * tmp = top.node;
+
+         # we 're poping the node here to insert the right child on top
+         stack.pop()
+
+         if tmp->right != nullptr
+          stack.push(special_node(tmp->right,false))
+          # already pushed its children in
+         stack.push(special_node(tmp->right,true))
+         if tmp->left != nullptr
+          stack.push(special_node(tmp->left,false))
+        }
+     }
+  }
+  
+   In all these tree traversals, each node is visited exactly once, so the time complexity is O(n). We're mainting a stack with the space complexity of O(h) where h is the height of the tree. In the degenerate case, h = O(n); so the stack's space is O(n) in the worst case. To circumvent using the stack, we can implement a parent pointer to the Node struct, this add n extra nodes to the tree to maintain. We can do better than this by using threading.
+   
+  Node threading:
+  Instead of maintaining an extra pointer to point the the parent, we use one of the left/right node of an exteral node and point that node to either the parent or the granparent. We need to revised the struct data to include a boolean type "is_thread"; if a node is_thread it is an external node. If we don't mark the is_thread variable, we will encounter an infinite loop. For the sake of simplicity, we are doing right threading, where only the right child can point to any node on higher level (usually parent or grandparent node). for the right most external node, the right child will be nullptr;
+  struct Node {
+    data;
+    bool is_thread;
+    Node * link[2]
+  }
+  Insertion:
+
+  find_node(Node * root, in_data){
+    if a node.data == in_data
+     return nullptr
+    else
+     return external_node
+  }
+
+  insert_with_thread(tree, data){
+    Node * external = find_node(tree->root, data)
+    Node * tmpnode = new make_node(data)
+    if external != nullptr{
+       tmpnode.is_thread = external.is_thread;
+       insertion_dir = external->data < data
+
+       if insertion_dir == right {
+        tmpnode.link[right] = external.link[right]
+        external.is_thread = false
+       }
+       else
+        tmpnode.link[right] = external
+       external.link[insertion_dir] = tmpnode;
+    }
+  }
+  
+  delete_with_thread(tree, data){
+  }
+** Learn trie-tree
+** Learn n-arry tree
+** Learn red-black tree
+** Learn AVL tree
+** Learn splay tree
+* TODO Graphs:
+** TODO Learn graph representations
+*** TODO objects and pointers
+*** TODO matrix
+*** TODO adjacency list
+** TODOLearn Graph Traversal
+*** TODO Learn Breadth First Search
+*** TODO Learn Depth First Search
+*** TODO Learn Dijkstra
+*** TODO Learn A*
+* TODO Other data structures
+* TODO NP-complete problems
+** TODO Learn traveling salesman
+** TODO Learn knapsack problem
+* TODO Math
+** Learn Discrete Math
+*** Learn modulus
+** Learn Counting problems/Combinatoris (from n choose k)
+** Learn Probability
+* TODO Operating Systems:
+** Learn Processes
+** Learn Threads
+** Learn Concurrency
+** Learn Lock
+** Learn Mutex
+** Learn deadlock/livelock
+** Learn context switching
+** Learn scheduling
+** Learn 
+* TODO File IO:
+ c++ has fstream/ifstream/ofstream
+ Syntax:
+   std::fstream myfile;myfile.open("filename",ios::in|ios::out|ios::app)
+   myfile.close();
+   std::ofstream outfile;outfile.open("filename");
+   outfile.close();
+   std::ifstream infile;infile.open("filename");
+** TODO infile.close();
+* TODO Object Oriented Programming:
+* TODO Move semantic

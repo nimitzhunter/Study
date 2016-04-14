@@ -1,0 +1,15 @@
+* Elements of Programming Interviews
+** Lists of Questions
+*** 11 Heap:
+    16.1
+*** 15 Binary Search Tree:
+    1. Given a sequence of sorted arrays, find the sorted union of these arrays:
+       Input: An array of sorted arrays
+       Output: an sorted arrays. 
+       Solution: 
+       a. Use a min-heap to store the pair (current_iter, end_iter) from each array.
+       b. Iterate while min-heap is not empty.
+       c. At each iteration:
+         * pop the heap to add to the result. 
+         * advance the current iterator, and push the new pair into the heap if the next iter != end iter.
+    2. 

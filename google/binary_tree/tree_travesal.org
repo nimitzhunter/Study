@@ -1,0 +1,7 @@
+In a binary tree, there are three ways to traverse the entire tree:
+1. Pre Order: visit, left, right 
+2. In Order: left, visit, right
+3. Post Order: left, right, visit
+
+
+In pre-order traversal, at each node in the tree, we mark the node as visited and process it, then travel left until we reach the external node. 
