@@ -1,0 +1,24 @@
+* Make Fundamental:
+  1. Make rules:
+     - Make rule doesn't start with tab.
+     - Make rule must have colon.
+     - In Make rules, left of the colon is the target and right is list of dependencies.
+     - Each rule can have multiple targets. Each target in the list execute independently.
+     - [[file:./Makefile::12][Example]]
+
+
+  2. Make command:
+     - Start with tab.
+     - Can have multiple commands per rule, but must escape the new line "\"
+     - [[file:./Makefile::12][Example]]
+
+  3. Variable:
+     - make reads the Makefile twice. In the first path, make reads the variable.
+     - Variable reuse will cause confusing result. Be careful
+     - [[file:./Makefile::17][Example]]
+
+* Default rule: [[file:./make.txt::453][Manual]]
+   - [[file:./Makefile::1][Example]]
+     
+* Implicit Rule: [[file:./make.txt::560][Manual]]
+  
