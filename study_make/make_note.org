@@ -21,4 +21,15 @@
    - [[file:./Makefile::1][Example]]
      
 * Implicit Rule: [[file:./make.txt::560][Manual]]
+* Multiple Commands/Splitting Recipes: [[file:./make.txt::2651][Manual]]
+* Using variables: [[file:./make.txt::2738][Manual]] - [[file:./make.txt::2749][Double $$]]
   
+* PHONY targets:[[file:./make.txt::1884][Manual]]
+  - Targets can't be a file system.
+  - name of a recipe that needs to be executed when a request is explicitly made.
+  - Why we need this? If a file name is already exists, and the target accidentally matches the file-name, the command will never get executed. For the command to be executed, the target must be into .PHONY list of dependency. [[file:./make.txt::1903][Example]]
+  - [[file:./jupiter/Makefile::20][Since we're creating a file system, we can't add the target into .PHONY]]
+  - [[file:./jupiter/Makefile::26][Adding a non-file-system target to .PHONY]]
+
+  
+* $ vs $$: [[file:./make.txt::2738][Manual Page]]

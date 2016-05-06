@@ -19,3 +19,6 @@ myvar = "myvar"
 testvar:
 	echo $(myvar)
 myvar = "different value now"
+
+testvar2:
+	@echo $(myvar)
